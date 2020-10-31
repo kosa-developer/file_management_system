@@ -1,6 +1,6 @@
 /**
  *  Document   : app.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: Core script to handle the entire theme and core functions
  *
  **/
@@ -48,7 +48,7 @@ var App = function() {
     	});
 
     };
-    
+
     /************* Handle theme layout ****************/
     var handleTheme = function() {
 
@@ -583,7 +583,7 @@ var App = function() {
 
             // handle post
             var time = new Date();
-            var message = preparePost('out', (time.getHours() + ':' + time.getMinutes()), "Kiran Patel", 'dp', text);
+            var message = preparePost('out', (time.getHours() + ':' + time.getMinutes()), "Bansi Patel", 'dp', text);
             message = $(message);
             chatContainer.append(message);
 

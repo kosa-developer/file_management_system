@@ -1,6 +1,6 @@
 /**
  *  Document   : form-wizard.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: Script related to form wizard 
  *
  **/
@@ -238,7 +238,10 @@ var FormWizard = function () {
 
                  if (form.valid() == false) {
                      return false;
-                 }
+                 }else
+            	 {
+                	 alert('Finished! Hope you like it :)');
+            	 }
                 
             }).hide();
             

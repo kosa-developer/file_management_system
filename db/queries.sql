@@ -1,0 +1,38 @@
+CREATE TABLE `messaging` (
+	`Id` INT(11) NOT NULL AUTO_INCREMENT,
+	`Sender_id` INT(11) NULL DEFAULT NULL,
+	`Receiver_id` INT(11) NULL DEFAULT NULL,
+	`Message` TEXT(65535) NULL DEFAULT NULL COLLATE 'latin1_swedish_ci',
+	`Time` TIMESTAMP NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+	`Status` INT(11) NULL DEFAULT '1',
+	PRIMARY KEY (`Id`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=186
+;
+
+CREATE TABLE `restrict_member` (
+	`Id` INT(11) NOT NULL AUTO_INCREMENT,
+	`Staff_id` INT(11) NULL DEFAULT NULL,
+	`File_id` INT(11) NULL DEFAULT NULL,
+	PRIMARY KEY (`Id`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=14
+;
+
+CREATE TABLE `shared_files` (
+	`Id` INT(11) NOT NULL AUTO_INCREMENT,
+	`Receiver_id` INT(11) NULL DEFAULT NULL,
+	`Sender_id` INT(11) NULL DEFAULT NULL,
+	`File_id` INT(11) NULL DEFAULT NULL,
+	`Time` TIMESTAMP NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+	`Status` INT(11) NULL DEFAULT '1',
+	PRIMARY KEY (`Id`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=145
+;

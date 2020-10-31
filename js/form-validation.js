@@ -1,6 +1,6 @@
 /**
  *  Document   : form-validation.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: Script related to validate the form
  *
  **/

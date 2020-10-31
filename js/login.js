@@ -1,6 +1,6 @@
 /**
  *  Document   : login.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: login form script
  *
  **/

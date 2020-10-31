@@ -41,13 +41,15 @@ $(document).ready(function() {
 }
 
 );
+
 $(document).ready(function() {
 	var randomScalingFactor = function() {
         return Math.round(Math.random() * 100);
     };
 
+    var chartColors = window.chartColors;
+    var color = Chart.helpers.color;
     var config = {
-        type: 'doughnut',
         data: {
             datasets: [{
                 data: [
@@ -58,13 +60,13 @@ $(document).ready(function() {
                     randomScalingFactor(),
                 ],
                 backgroundColor: [
-                    window.chartColors.red,
-                    window.chartColors.orange,
-                    window.chartColors.yellow,
-                    window.chartColors.green,
-                    window.chartColors.blue,
+                    color(chartColors.red).alpha(0.5).rgbString(),
+                    color(chartColors.orange).alpha(0.5).rgbString(),
+                    color(chartColors.yellow).alpha(0.5).rgbString(),
+                    color(chartColors.green).alpha(0.5).rgbString(),
+                    color(chartColors.blue).alpha(0.5).rgbString(),
                 ],
-                label: 'Dataset 1'
+                label: 'My dataset' // for legend
             }],
             labels: [
                 "Red",
@@ -77,20 +79,26 @@ $(document).ready(function() {
         options: {
             responsive: true,
             legend: {
-                position: 'top',
+                position: 'right',
             },
             title: {
                 display: true,
-                text: 'Doughnut Chart'
+                text: 'Polar Area Chart'
+            },
+            scale: {
+              ticks: {
+                beginAtZero: true
+              },
+              reverse: false
             },
             animation: {
-                animateScale: true,
-                animateRotate: true
+                animateRotate: false,
+                animateScale: true
             }
         }
     };
 
-        var ctx = document.getElementById("chartjs_doughnut").getContext("2d");
-        window.myDoughnut = new Chart(ctx, config);
-    
+        var ctx = document.getElementById("chartjs_polar");
+        window.myPolarArea = Chart.PolarArea(ctx, config);
+
 	});

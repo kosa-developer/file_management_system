@@ -23,15 +23,56 @@
 <!-- END PAGE LEVEL SCRIPTS -->
 <script src="js/jquery-idle-timeout/ui-idletimeout.js"></script>
 
-    <script src="js/jquery-tags-input/jquery-tags-input.js" type="text/javascript"></script>
-    <script src="js/jquery-tags-input/jquery-tags-input-init.js" type="text/javascript"></script>
+<script src="js/jquery-tags-input/jquery-tags-input.js" type="text/javascript"></script>
+<script src="js/jquery-tags-input/jquery-tags-input-init.js" type="text/javascript"></script>
 
 <!-- bootstrap -->
 <script src="js/summernote/summernote.js" type="text/javascript"></script>
+<script src="timing.js" type="text/javascript"></script>
 <script type="text/javascript">
-$(document).ready(function () {
-    $('#summernote').summernote();
-});
+    $(document).ready(function () {
+        $('#summernote').summernote();
+    });
+
+    function messaging(staff_id) {
+        document.getElementById("staff_id").value = staff_id;
+
+        $('#sendtextbutton').attr({
+            "class": "form-inline"        // values (or variables) here
+        });
+
+        $.ajax({
+            type: 'POST',
+            url: 'index.php?page=<?php echo "ajax_data"; ?>',
+            data: {action: "returnmessages", staff_id: staff_id, remove: "clear_activemessage"},
+            success: function (html) {
+               $("#header_inbox_bar").load(window.location.href + " #header_inbox_bar");
+                $('#returned_message').html(html);
+                $('#notification_' + staff_id).html("");
+            }
+        });
+
+    }
+
+    function sendmessage(sender, message_id) {
+        var message = document.getElementById(message_id).value;
+        var receiver = document.getElementById("staff_id").value;
+        if (message === '') {
+            alert("Message box is null")
+        } else {
+            $.ajax({
+                type: 'POST',
+                url: 'index.php?page=<?php echo "ajax_data"; ?>',
+                data: {action: "returnmessages", sender: sender, receiver: receiver, message: message, button: "sendmessage"},
+                success: function (html) {
+                    $('#returned_message').html(html);
+                    document.getElementById(message_id).value = "";
+                }
+            });
+        }
+
+    }
+
 </script>
 <script>
     jQuery(document).ready(function () {
@@ -248,21 +289,21 @@ $(document).ready(function () {
     }
     $tr_id = 1;
 
-function send_survey(id){   
-    var staff_id = document.getElementById('staff_id'+id).value;
-        var staff_name = document.getElementById('staff_name'+id).value;
-        var code = document.getElementById('code'+id).value;
-        var email = document.getElementById('email'+id).value;
+    function send_survey(id) {
+        var staff_id = document.getElementById('staff_id' + id).value;
+        var staff_name = document.getElementById('staff_name' + id).value;
+        var code = document.getElementById('code' + id).value;
+        var email = document.getElementById('email' + id).value;
         jQuery('#result').css({'color': 'red', 'font-style': 'italic', 'font-size': '150%'});
-            
-        if(email!=""){
-            
-       jQuery('#result').html('sending...');
-       
-          jQuery.ajax({
+
+        if (email != "") {
+
+            jQuery('#result').html('sending...');
+
+            jQuery.ajax({
                 type: 'POST',
                 url: 'index.php?page=ajax_data',
-                data: {submit_text: "survey", staff_id: staff_id, staff_name: staff_name, code: code,email: email},
+                data: {submit_text: "survey", staff_id: staff_id, staff_name: staff_name, code: code, email: email},
                 success: function (html) {
 
                     var word = 'Survey has been successfully sent';
@@ -281,27 +322,27 @@ function send_survey(id){
                     }
                 }
             });
-   }else{
-       jQuery('#result').css({'color': 'red', 'font-style': 'italic', 'font-size': '150%'});
-        
-        jQuery('#result').html('Please enter email and send again');
-   }   
-}
+        } else {
+            jQuery('#result').css({'color': 'red', 'font-style': 'italic', 'font-size': '150%'});
+
+            jQuery('#result').html('Please enter email and send again');
+        }
+    }
     function send_policy(id) {
-        var staff_id = document.getElementById('survey_staff_id'+id).value;
-        var staff_name = document.getElementById('survey_staff_name'+id).value;
-        var code = document.getElementById('survey_code'+id).value;
-        var email = document.getElementById('survey_email'+id).value;
+        var staff_id = document.getElementById('survey_staff_id' + id).value;
+        var staff_name = document.getElementById('survey_staff_name' + id).value;
+        var code = document.getElementById('survey_code' + id).value;
+        var email = document.getElementById('survey_email' + id).value;
         jQuery('#result').css({'color': 'red', 'font-style': 'italic', 'font-size': '150%'});
-            
-        if(email!=""){
-            
-       jQuery('#result').html('sending...');
-       
-          jQuery.ajax({
+
+        if (email != "") {
+
+            jQuery('#result').html('sending...');
+
+            jQuery.ajax({
                 type: 'POST',
                 url: 'index.php?page=ajax_data',
-                data: {submit_text: "policy", staff_id: staff_id, staff_name: staff_name, code: code,email: email},
+                data: {submit_text: "policy", staff_id: staff_id, staff_name: staff_name, code: code, email: email},
                 success: function (html) {
 
                     var word = 'Policy has been successfully sent';
@@ -320,11 +361,11 @@ function send_survey(id){
                     }
                 }
             });
-   }else{
-       jQuery('#result').css({'color': 'red', 'font-style': 'italic', 'font-size': '150%'});
-        
-        jQuery('#result').html('Please enter email and send again');
-   }
+        } else {
+            jQuery('#result').css({'color': 'red', 'font-style': 'italic', 'font-size': '150%'});
+
+            jQuery('#result').html('Please enter email and send again');
+        }
     }
 
     function delete_item(element_id) {

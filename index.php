@@ -32,6 +32,11 @@ switch ($page) {
             include 'pages/settings/' . $page . '.php';
         break;
 
+    case 'fileaccess':
+        if (file_exists('pages/settings/' . $page . '.php'))
+            include 'pages/settings/' . $page . '.php';
+        break;
+
 
 
     case 'add_user':
@@ -68,8 +73,11 @@ switch ($page) {
         if (file_exists('pages/file/' . $page . '.php'))
             include 'pages/file/' . $page . '.php';
         break;
-        
-        
+    case 'shared_files':
+        if (file_exists('pages/file/' . $page . '.php'))
+            include 'pages/file/' . $page . '.php';
+        break;
+
     case 'file_page':
         if (file_exists('pages/file/' . $page . '.php'))
             include 'pages/file/' . $page . '.php';

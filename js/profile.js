@@ -1,6 +1,6 @@
 /**
  *  Document   : profile.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: profile page related scripts
  *
  **/

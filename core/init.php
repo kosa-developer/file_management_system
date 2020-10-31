@@ -6,7 +6,7 @@ $GLOBALS['config'] = array(
         'host' => '127.0.0.1',
         'username' => 'root',
         'password' => 't00r',
-        'db' => 'file_mgnt_db'
+        'db' => 'file_mbarara_db'
     ),
     'remember' => array(
         'cookie_name' => 'hash',
@@ -27,7 +27,8 @@ spl_autoload_register(function($class) {
 require_once 'functions/functions.php';
 //Declarations
 $HOSPITAL_NAME_ABREV="Files";
-$hospital_main_title="File management system";
-$hospital_survey_title="File management system";
+$hospital_main_title="Mbarara Regional Refferal Hospital <br/>File management system";
+$hospital_survey_title="Mbarara Regional Refferal Hospital<br/> File management system";
+$company_name="Mbarara Regional Refferal Hospital";
 
 ?>

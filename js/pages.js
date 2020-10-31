@@ -1,6 +1,6 @@
 /**
  *  Document   : pages.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: pages script
  *
  **/

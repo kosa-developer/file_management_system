@@ -1,6 +1,6 @@
 /**
  *  Document   : theme-color.js
- *  Author     : redstar
+ *  Author     : seffy
  *  Description: Core script to handle the entire theme and core functions
  *
  **/

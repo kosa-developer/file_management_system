@@ -53,6 +53,10 @@
                                 <a href="index.php?page=add_staff&mode=registered" >All Staff Members</a>
 
                             </li>
+                            <li class="nav-item">
+                                <a href="index.php?page=fileaccess&mode=registered" >File access rights</a>
+
+                            </li>
                         </ul>
                     </li>
                 <?php } ?>

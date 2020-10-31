@@ -1,6 +1,6 @@
 /**
  *  Document   : google-maps-data.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: Google map data script
  *
  **/

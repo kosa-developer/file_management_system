@@ -21,6 +21,7 @@
 <link href="css/theme-color.css" rel="stylesheet" type="text/css" />
 <link href="js/select2/css/select2.css" rel="stylesheet" type="text/css" />
 <link href="js/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+
 <!-- data tables -->
 <link href="js/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
 <!-- favicon -->

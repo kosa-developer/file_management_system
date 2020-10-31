@@ -12,11 +12,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for file_mgnt_db
-CREATE DATABASE IF NOT EXISTS `file_mgnt_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `file_mgnt_db`;
+-- Dumping database structure for file_mbarara_db
+CREATE DATABASE IF NOT EXISTS `file_mbarara_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `file_mbarara_db`;
 
--- Dumping structure for table file_mgnt_db.department
+-- Dumping structure for table file_mbarara_db.department
 CREATE TABLE IF NOT EXISTS `department` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `department_name` text DEFAULT NULL,
@@ -24,16 +24,11 @@ CREATE TABLE IF NOT EXISTS `department` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table file_mgnt_db.department: ~3 rows (approximately)
-DELETE FROM `department`;
+-- Dumping data for table file_mbarara_db.department: ~0 rows (approximately)
 /*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` (`id`, `department_name`, `Status`) VALUES
-	(1, 'faculty of science', 1),
-	(2, 'institute of computer science', 1),
-	(4, 'Nursing department', 1);
 /*!40000 ALTER TABLE `department` ENABLE KEYS */;
 
--- Dumping structure for table file_mgnt_db.file
+-- Dumping structure for table file_mbarara_db.file
 CREATE TABLE IF NOT EXISTS `file` (
   `file_id` int(11) NOT NULL AUTO_INCREMENT,
   `staff_id` int(11) DEFAULT NULL,
@@ -45,21 +40,11 @@ CREATE TABLE IF NOT EXISTS `file` (
   PRIMARY KEY (`file_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
--- Dumping data for table file_mgnt_db.file: ~4 rows (approximately)
-DELETE FROM `file`;
+-- Dumping data for table file_mbarara_db.file: ~0 rows (approximately)
 /*!40000 ALTER TABLE `file` DISABLE KEYS */;
-INSERT INTO `file` (`file_id`, `staff_id`, `file_name`, `file`, `passcode`, `department_id`, `status`) VALUES
-	(1, 2, 'first file', 'Naturinda Patrick-Practical Test.docx', 'xzX3gF', 1, 1),
-	(2, 2, 'second file', 'Naturinda Patrick-Practical Test.pptx', NULL, 1, 1),
-	(3, 2, 'second test', 'Naturinda Patrick-Practical Test.pptx', 'c9vgxG', 1, 1),
-	(4, 4, 'third file', 'MPS-CONSOLIDATED-MoICT-NG-FY-2018-19.pdf', 'pZbNBy', 1, 1),
-	(5, 1, 'testing', 'opd.docx', 'dMgDhZ', 2, 1),
-	(6, 2, '1st file', 'Core values.docx', NULL, 1, 1),
-	(7, 2, '2nd', 'BDP SETTLEMENTS.xls', NULL, 1, 1),
-	(8, 2, '3rd', '2020 Newsletter March Final(1).pdf', NULL, 1, 1);
 /*!40000 ALTER TABLE `file` ENABLE KEYS */;
 
--- Dumping structure for table file_mgnt_db.staff
+-- Dumping structure for table file_mbarara_db.staff
 CREATE TABLE IF NOT EXISTS `staff` (
   `staff_id` int(11) NOT NULL AUTO_INCREMENT,
   `department_id` int(11) DEFAULT NULL,
@@ -72,13 +57,8 @@ CREATE TABLE IF NOT EXISTS `staff` (
   PRIMARY KEY (`staff_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Dumping data for table file_mgnt_db.staff: ~2 rows (approximately)
-DELETE FROM `staff`;
+-- Dumping data for table file_mbarara_db.staff: ~0 rows (approximately)
 /*!40000 ALTER TABLE `staff` DISABLE KEYS */;
-INSERT INTO `staff` (`staff_id`, `department_id`, `name`, `staff_title`, `user_name`, `password`, `Status`, `user_type`) VALUES
-	(1, 2, 'Naturinda Patrick', 'IT programmer', 'kosa', '7a946798413d5ce805c5fa993d43a0f9', 1, 'Admin'),
-	(2, 1, 'Butogota Town Council', 'PA TO ED/ COMMUNICATIONS OFFICER', 'opd', 'b9498a1fc311c88af062701a837859a5', 1, 'User'),
-	(4, 1, 'amutuhaire constitence', 'Finance Manager', 'babrah', 'b90d283aa29eda2f7fe464a0a3f44b23', 1, 'User');
 /*!40000 ALTER TABLE `staff` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

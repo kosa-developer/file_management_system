@@ -1,6 +1,6 @@
 /**
  *  Document   : table_data.js
- *  Author     : redstar
+ *  Author     : Seffy
  *  Description: advance table page script
  *
  **/
